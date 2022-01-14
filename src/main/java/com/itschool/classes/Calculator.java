@@ -50,8 +50,7 @@ public class Calculator {
       try {
          double resDouble = Double.parseDouble(result);
          int resInt = (int) resDouble;
-         if (Math.abs(resDouble - resInt) < 1E-14)
-            result = resInt + "";
+         if (Math.abs(resDouble - resInt) < 1E-14) result = resInt + "";
       } catch (Exception ignored) {
       }
    }

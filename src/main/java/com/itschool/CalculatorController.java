@@ -60,10 +60,8 @@ public class CalculatorController {
    private void getValueFromDisplay(ActionEvent actionEvent) {
       String displayText = display.getText();
       try {
-         if (Double.parseDouble(displayText) == 0)
-            display.setText(((Button) actionEvent.getSource()).getText());
-         else
-            display.setText(display.getText() + ((Button) actionEvent.getSource()).getText());
+         if (Double.parseDouble(displayText) == 0) display.setText(((Button) actionEvent.getSource()).getText());
+         else display.setText(display.getText() + ((Button) actionEvent.getSource()).getText());
       } catch (Exception ignored) {
 
       }
@@ -105,8 +103,7 @@ public class CalculatorController {
    }
 
    public void btnCalculateClick() {
-      if (!isCalculatePressed)
-         calculator.setNumber2(Double.parseDouble(display.getText()));
+      if (!isCalculatePressed) calculator.setNumber2(Double.parseDouble(display.getText()));
 
       calculator.calculate();
       display.setText(calculator.getResult());
