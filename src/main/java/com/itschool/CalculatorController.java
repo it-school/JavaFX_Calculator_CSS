@@ -12,8 +12,9 @@ import javafx.scene.control.TextField;
 public class CalculatorController {
    @FXML
    private TextField display;
-   private @FXML
-   Label lblMemory;
+   @FXML
+   private Label lblMemory;
+
    private boolean isOperationPressed = false;
    private boolean isCalculatePressed = false;
    private Calculator calculator;
@@ -32,6 +33,7 @@ public class CalculatorController {
             case "-" -> calculator.setOperation(Operation.minus);
             case "*" -> calculator.setOperation(Operation.multiply);
             case "/" -> calculator.setOperation(Operation.divide);
+            case "x^y" -> calculator.setOperation(Operation.power);
             case "√" -> {
                calculator.setOperation(Operation.sqrt);
                calculator.calculate();
@@ -43,7 +45,6 @@ public class CalculatorController {
 
       }
       isCalculatePressed = false;
-
    }
 
    public void numberBtnClick(ActionEvent actionEvent) {
@@ -54,7 +55,6 @@ public class CalculatorController {
 
       getValueFromDisplay(actionEvent);
       isCalculatePressed = false;
-
    }
 
    private void getValueFromDisplay(ActionEvent actionEvent) {
@@ -71,6 +71,10 @@ public class CalculatorController {
       display.setText("0");
       calculator.clearAll();
       isCalculatePressed = false;
+   }
+
+   public void btnCommaClick() {
+      if (!display.getText().contains(".")) display.setText(display.getText() + ".");
    }
 
    public void btnMemoryPlusClick() {

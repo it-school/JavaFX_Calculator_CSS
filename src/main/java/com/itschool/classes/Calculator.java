@@ -43,8 +43,9 @@ public class Calculator {
          case minus -> result = (number1 - number2) + "";
          case multiply -> result = (number1 * number2) + "";
          case divide -> result = number2 != 0 ? number1 / number2 + "" : "Division by zero";
-         case sqrt -> result = number1 >= 0 ? Math.sqrt(number1) + "" : "Error calc sqrt of negative";
-         default -> result = "Operation not defined";
+         case sqrt -> result = number1 >= 0 ? Math.sqrt(number1) + "" : "Error: sqrt of negative";
+         case power -> result = Math.pow(number1, number2) + "";
+         default -> result = "Undefined operation";
       }
 
       try {
